@@ -58,13 +58,30 @@
   <audio data-key="76" src="sounds/tink.wav"></audio>
 
 <script>
+
 window.addEventListener('keydown', function(e) { //adds a listener for the button
-const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
-console.log(audio); //stops the function from running all together
-if(!audio) return;
-audio.currentTime = 0; //rewind to the start after each cycle through
-audio.play();
+    
+   const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`); //searches foe key number for audio
+   const key = document.querySelector(`.key[data-key="${e.keyCode}"]`); //searches for key for letter
+
+    if(!audio) return;//stops the function from running all together
+  
+    audio.currentTime = 0; //rewind to the start after each cycle through
+    audio.play();
+
+    key.classList.add('playing');
+
 })
+
+function removeTransition(e){
+if(e.propertyName !== 'transform') return; //skip it if it's not a transform
+
+this.classList.remove('playing');
+}
+
+const keys = document.querySelectorAll('.key');
+keys.forEach(key => addEventListener('transitionend', removeTransition));
+
 </script>
 
 
