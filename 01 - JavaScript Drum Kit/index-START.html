@@ -59,10 +59,11 @@
 
 <script>
 
-window.addEventListener('keydown', function(e) { //adds a listener for the button
     
-   const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`); //searches foe key number for audio
-   const key = document.querySelector(`.key[data-key="${e.keyCode}"]`); //searches for key for letter
+  function playSound(e){
+    
+    const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`); //searches for key number for audio
+    const key = document.querySelector(`.key[data-key="${e.keyCode}"]`); //searches for key for letter
 
     if(!audio) return;//stops the function from running all together
   
@@ -70,21 +71,22 @@ window.addEventListener('keydown', function(e) { //adds a listener for the butto
     audio.play();
 
     key.classList.add('playing');
+  }   
 
-})
 
-function removeTransition(e){
-if(e.propertyName !== 'transform') return; //skip it if it's not a transform
 
-this.classList.remove('playing');
-}
+  function removeTransition(e){
+    if(e.propertyName !== 'transform') return; //skip it if it's not a transform
 
-const keys = document.querySelectorAll('.key');
-keys.forEach(key => addEventListener('transitionend', removeTransition));
+    e.target.classList.remove('playing'); //not totally sure about 'target' here  
+  }
+
+  const keys = document.querySelectorAll('.key');
+  keys.forEach(key => addEventListener('transitionend', removeTransition));
+  
+  window.addEventListener('keydown', playSound); //adds a listener for the button
 
 </script>
-
-
 </body>
 </html>
  
