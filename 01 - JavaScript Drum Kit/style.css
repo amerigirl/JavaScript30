@@ -14,7 +14,7 @@ body,html {
   display: flex;
   flex: 1;
   min-height: 100vh;
-  align-items: end;
+  align-items: center;
   justify-content: center;
 }
 
@@ -81,4 +81,23 @@ box-shadow: 0px 30px 60px -5px #000;
 outline: 6px solid hotpink;
 }
 
+.my-fade-in-image{
+  animation: fadeIn 3s;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+
+.his-fade-in-image{
+  animation: fadeIn 3s;
+
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1;}
+} 
 
