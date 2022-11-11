@@ -101,3 +101,10 @@ outline: 6px solid hotpink;
   100% { opacity: 1;}
 } 
 
+h1{
+  font-size: 35px;
+  position: relative; right: -700px; top: 200px;
+  margin: auto;
+  
+
+}
