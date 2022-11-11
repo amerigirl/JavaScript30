@@ -1,12 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <title>JS Drum Kit</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Makin' beats</title>
+  <link rel="stylesheet" href="style.css"> 
 </head>
+
 <body>
 
+<div class="myMessage">
+  <p><h4>Let's make some music! Click the letters below to hear all the awesome sounds :)</h4></p>
+</div>
+
+<div class="hisMessage">
+  <p><h4>You can play for as long as you like--so don't be shy!</h4></p>
+</div>
+
+  <!--each key click has an associated data number and they all have the key class-->
 
   <div class="keys">
     <div data-key="65" class="key">
@@ -47,7 +58,8 @@
     </div>
   </div>
 
-  <audio data-key="65" src="sounds/clap.wav"></audio>
+  <!--all audio for Makin Beats-->
+  <audio data-key="65" src="sounds/clap.wav"></audio> 
   <audio data-key="83" src="sounds/hihat.wav"></audio>
   <audio data-key="68" src="sounds/kick.wav"></audio>
   <audio data-key="70" src="sounds/openhat.wav"></audio>
@@ -59,15 +71,14 @@
 
 <script>
 
-    
+    //function to play (and stop playing) a sound when key is pressed  
   function playSound(e){
     
-    const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`); //searches for key number for audio
-    const key = document.querySelector(`.key[data-key="${e.keyCode}"]`); //searches for key for letter
-
-    if(!audio) return;//stops the function from running all together
+    const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`); //sets audio variable to keycode push event
+    const key = document.querySelector(`.key[data-key="${e.keyCode}"]`); //sets key variable to the same key code push event
+    if(!audio) return;//stops the function if you don't push something with audio
   
-    audio.currentTime = 0; //rewind to the start after each cycle through
+    audio.currentTime = 0; //rewind to the before after each cycle through
     audio.play();
 
     key.classList.add('playing');
