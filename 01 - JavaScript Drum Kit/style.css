@@ -68,6 +68,7 @@ outline: 6px solid rgb(54, 194, 7);
 
 
 .hisMessage{
+display: none;
 font-size: 18px;
 position: relative; right: -600px; top: 170px;
 height: 85px;
@@ -82,10 +83,10 @@ outline: 6px solid hotpink;
 }
 
 .my-fade-in-image{
-  animation: fadeIn 3s;
+  animation: fadeIn1 3s;
 }
 
-@keyframes fadeIn {
+@keyframes fadeIn1 {
   0% { opacity: 0; }
   100% { opacity: 1; }
 }
@@ -93,8 +94,9 @@ outline: 6px solid hotpink;
 
 .his-fade-in-image{
   animation: fadeIn 3s;
-
 }
+
+
 
 @keyframes fadeIn {
   0% { opacity: 0; }
